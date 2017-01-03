@@ -1,0 +1,5 @@
+127.0.0.1 - - [03/Jan/2017:12:31:56 +0100] "GET / HTTP/1.1" 404 962
+0:0:0:0:0:0:0:1 - - [03/Jan/2017:12:31:58 +0100] "GET /Server/servlet/com.area.servlets.ServletTest HTTP/1.1" 404 1050
+0:0:0:0:0:0:0:1 - - [03/Jan/2017:12:46:02 +0100] "GET /Server/servlet/com.area.servlets.ServletTest HTTP/1.1" 404 1050
+0:0:0:0:0:0:0:1 - - [03/Jan/2017:12:46:15 +0100] "GET /Server/Index.html HTTP/1.1" 200 131
+0:0:0:0:0:0:0:1 - - [03/Jan/2017:12:46:39 +0100] "GET /Server/Index.html HTTP/1.1" 200 151
