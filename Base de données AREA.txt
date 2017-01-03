@@ -1,6 +1,6 @@
 Table 'registre'
-	- nom_clients
-	- date '##/##/##'
+	- nom_clients VARCHAR(255)
+	- date '##/##/##' (DATETIME)
 	
 Table 'membres'
 	- id_clients INT
