@@ -1,0 +1,23 @@
+Table 'registre'
+	- nom_clients
+	- date '##/##/##'
+	
+Table 'membres'
+	- id_clients INT
+	- nom VARCHAR(255)
+	- prenom VARCHAR(255)
+	- facebook_iden VARCHAR(255)
+	- twitter_iden VARCHAR(255)
+	- mail_iden VARCHAR(255)
+	- epitech_iden VARCHAR(255)
+	- skype_iden VARCHAR(255)
+	
+Table 'connexion'
+	- id_clients INT
+	- etat_facebook BOOLEAN
+	- etat_twitter BOOLEAN
+	- etat_mail BOOLEAN
+	- etat_skype BOOLEAN
+	- etat_epitech BOOLEAN
+	
+	
