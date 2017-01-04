@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Index</title>
+    </head>
+
+    <body>
+        <p>Ceci est une page générée depuis une JSP.</p>
+        <p>
+        	<p>Ceci est une page générée depuis une JSP.</p>
+        <p>
+            <% String attribut = (String) request.getAttribute("msg"); %>
+            <%= attribut %>
+
+            <% String parametre = request.getParameter( "auteur" ); %>
+            <%= parametre %>
+        </p>
+        <p>
+            Récupération du bean :
+            <jsp:useBean id="mrbean" class="com.area.beans.MrBean" scope="request" />
+            <jsp:getProperty name="mrbean" property="prenom" />
+            <jsp:getProperty name="mrbean" property="nom" />
+        </p>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+package com.area.beans;
+
+public class membre {
+	private int 	id;
+	private String 	nom;
+	private String	prenom;
+}

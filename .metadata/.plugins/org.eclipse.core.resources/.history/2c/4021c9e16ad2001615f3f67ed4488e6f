@@ -1,0 +1,14 @@
+package com.area.bdd;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.area.beans.membre;
+
+public class user {
+	public List<membre> getUsers(){
+		List<membre> res = new ArrayList<membre>();
+		return res;
+		
+	}
+}

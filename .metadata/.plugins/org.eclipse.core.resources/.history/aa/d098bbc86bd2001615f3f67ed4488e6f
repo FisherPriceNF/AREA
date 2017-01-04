@@ -1,0 +1,33 @@
+package com.area.bdd;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.area.beans.membre;
+
+import java.sql.*;
+
+public class user {
+	public List<membre> getUsers(){
+		List<membre> res = new ArrayList<membre>();
+		
+		// Chargement du driver
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch (ClassNotFoundException e){
+			System.out.print("PAS DE DRIVER :@");
+		}
+		
+		Connection connexion;
+		Statement requete;
+		ResultSet resultat;
+		
+		try{
+			connexion = DriverManager.getConnection("jdbc:mysql://loclahost:3306/area", "root", "");
+			requete = connexion.createStatement();
+		}
+		
+		return res;
+	}
+}

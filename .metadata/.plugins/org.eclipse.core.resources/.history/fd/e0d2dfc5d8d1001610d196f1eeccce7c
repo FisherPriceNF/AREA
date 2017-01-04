@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Index</title>
+    </head>
+
+    <body>
+        <p>Ceci est une page générée depuis une JSP.</p>
+        <p>
+        	<%
+        		String msg = (String) request.getAttribute("msg");
+        		out.println(msg);
+        	%>
+        </p>
+        <p>
+            Récupération du bean :
+            <%	
+	    		com.area.beans.MrBean notreBean = (com.area.beans.MrBean) request.getAttribute("coyote");
+	    		out.println( notreBean.getPrenom() );
+            	out.println( notreBean.getNom() );
+            %>
+        </p>
+        <p>
+        	Oush cousin! Voila du JSP!
+        	<!-- Initialisation d'un bean de type Coyote avec une action standard, pour l'exemple : -->
+        <jsp:useBean id="mrbean" class="com.area.beans.MrBean" />
+        <!-- Initialisation de sa propriété 'prénom' : -->
+        <jsp:setProperty name="mrbean" property="prenom" value="Mr."/>
+        <!-- Et affichage de sa valeur : -->
+        ${ coyote.prenom }
+    </body>
+</html>

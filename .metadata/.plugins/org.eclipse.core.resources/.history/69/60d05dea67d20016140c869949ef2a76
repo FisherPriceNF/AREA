@@ -1,0 +1,13 @@
+package com.area.beans;
+
+public class membre {
+	private int 	id;
+	private String 	nom;
+	private String	prenom;
+	private String	facebook;
+	private String	twitter;
+	private String	yammer;
+	private String	skype;
+	private String	mail;
+	
+}

@@ -1,0 +1,40 @@
+package com.area.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.area.beans.MrBean;
+
+public class ServletTest extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+		// Création d'un message
+		String aut = request.getParameter("auteur");
+		String message;
+		if (aut != null)
+			message = "\"Transmission de variables : OK !\" - " + aut;
+		else
+			message = "Transmission de variables : OK !";
+		
+		/* Création du bean */
+		MrBean premierBean = new MrBean();
+		/* Initialisation de ses propriétés */
+		
+		premierBean.setNom( "Bean" );
+		premierBean.setPrenom( "Mr." );
+			
+		/* Stockage du message et du bean dans l'objet request */
+		request.setAttribute( "msg", message );
+		request.setAttribute( "coyote", premierBean );
+		
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/Index.jsp" ).forward( request, response );
+	}
+}
