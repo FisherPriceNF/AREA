@@ -1,47 +1,108 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>
-      Projet AREA
-    </title>
-  </head>
-  <body>
-    <p>
-    <h1> Projet AREA </h1>
-    </p>
-    <form method="post" action="initProcess.jsp">
-      <p>
-        <label for="nom">Entrez ici votre nom de famille :</label><br />
-        <input type="text" name="nom" id="nom" tabindex="10" />
-      </p>
-      <p>
-        <label for="prenom">Entrez ici votre prénom :</label><br />
-        <input type="text" name="prenom" id="prenom" tabindex="20" />
-      </p>
-      <p>
-        <label for="telephone">Entrez ici votre numéro de téléphone :</label><br />
-        <input type="text" name="telephone" id="telephone" tabindex="20">
-      </p>
-      <p>
-        <label for="mail">Entrez ici votre mail epitech :</label><br />
-        <input type="text" name="mail" id="mail" tabindex="20">
-      </p>
-      <p>
-        <label for="faceboox">Entrez ici votre identifiant facebook :</label><br />
-        <input type="text" name="facebook" id="facebook" tabindex="20">
-      </p>
-      <p>
-        <label for="twitter">Entrez ici votre identifiant twitter :</label><br />
-        <input type="text" name="twitter" id="twitter" tabindex="20">
-      </p>
-      <p>
-        <label for="skype">Entrez ici votre identifiant skype : </label><br />
-        <input type="text" name="skype" id="skype" tabindex="20">
-      </p>
-      <p>
-        <input type="submit" value="Valider" /> <input type="reset" value="Remettre à zéro" />
-      </p>
-    </form>
-  </body>
+<html >
+	<head>
+
+	  <meta charset="UTF-8"> <!-- Format -->
+	  <title>Projet AREA</title>
+	  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	  <link rel="stylesheet" href="css/style.css">	
+
+	</head>
+
+		<body>
+		<!-- Form de connexion -->
+			  <div class="form">
+			      
+			     <ul class="tab-group">
+        			<li class="tab active"><a href="#signup">Sign Up</a></li>
+        			<li class="tab"><a href="#login">Log In</a></li>
+      			</ul>
+			    
+			    <!-- Début tab-content -->  
+				    <div class="tab-content">
+				        <!-- Page Signup -->
+				        <div id="signup">   
+				        	  	<h1>Creation de votre compte</h1>
+				          
+				          		<!-- Type d'envoi Post à /-->
+				         		 <form action="identification.html" method="post">
+				          
+				          			<!-- Espace Prénom Nom -->
+				          			<div class="top-row">
+				          				<!-- Prénom -->
+				            			<div class="field-wrap">
+				              				<label>
+				                			Prénom<span class="req">*</span>
+				              				</label>
+				              				<input name="sprenom" type="text"required autocomplete="off" />
+				            			</div>
+				        
+				        				<!-- Nom -->
+				            			<div class="field-wrap">
+				              				<label>
+				                			Nom<span class="req">*</span>
+				              				</label>
+				              				<input name="snom" type="text"required autocomplete="off"/>
+				            			</div>
+				          			</div>
+
+				          			<!-- Adresse mail -->
+				          			<div class="field-wrap">
+				            			<label>
+				              			Adresse mail<span class="req">*</span>
+				            			</label>
+				            			<input name="semail" type="email"required autocomplete="off"/>
+				          			</div>
+				          
+				          			<!-- Mot de passe -->
+				          			<div class="field-wrap">
+				            			<label>
+				             			 Mot de passe<span class="req">*</span>
+				            			</label>
+				            			<input name="spass" type="password"required autocomplete="off"/>
+				          			</div>
+				          
+				         		 <button name="enregistre" type="submit" class="button button-block"/>Creation du compte</button>
+				          
+				          		</form>
+
+				        </div>
+				        
+				        <!-- Page Login -->
+				        <div id="login">   
+				          		<h1>Re - Bienvenue!</h1>
+				          
+				          		<form action="identification.html" method="post">
+				          			<!-- Adresse Mail -->
+				            		<div class="field-wrap">
+				            			<label>
+				              			Adresse mail<span class="req">*</span>
+				            			</label>
+				            			<input name="lemail" type="email"required autocomplete="off"/>
+				          			</div>
+				          
+				          			<!-- Mot de passe -->
+				          			<div class="field-wrap">
+				            			<label>
+				              			Mot de passe<span class="req">*</span>
+				            			</label>
+				           			 	<input name="lpass" type="password"required autocomplete="off"/>
+				          			</div>
+				          
+				          		<p class="forgot"><a href="#">Mot de passe oublié ?</a></p>
+				          
+				         		<button name="connexion" class="button button-block"/>Connexion</button>
+				          
+				          		</form>
+				        </div>
+				        
+				      </div><!-- tab-content -->
+				      
+			</div> <!-- /form -->
+
+		  <!-- Appelle de script Javascript -->
+		  <script src="js/index.js"></script>
+
+		</body>
 </html>
