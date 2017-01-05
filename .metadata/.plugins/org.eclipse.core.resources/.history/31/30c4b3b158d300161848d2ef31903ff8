@@ -1,0 +1,12 @@
+package com.area.dao;
+
+import java.util.List;
+
+import com.area.beans.Membre;
+
+public interface UtilisateurDAO {
+	void			add(Membre membre);
+	Membre			getMembre(String mail);
+	List<Membre>	getList();
+	boolean			check_auth(Membre membre);
+}

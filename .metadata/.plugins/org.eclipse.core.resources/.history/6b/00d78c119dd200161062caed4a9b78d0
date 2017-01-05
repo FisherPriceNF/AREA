@@ -1,0 +1,10 @@
+package com.area.dao;
+
+import java.util.List;
+
+import com.area.beans.Membre;
+
+public interface InfosConnectDAO {
+	void			add(Membre membre);
+	List<Membre>	getList();
+}

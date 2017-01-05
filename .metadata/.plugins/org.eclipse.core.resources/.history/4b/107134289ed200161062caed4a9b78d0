@@ -1,0 +1,13 @@
+package com.area.beans;
+
+public class InfosConnect {
+	private String	mail;
+	private boolean	connect_error;
+	
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}	
+}

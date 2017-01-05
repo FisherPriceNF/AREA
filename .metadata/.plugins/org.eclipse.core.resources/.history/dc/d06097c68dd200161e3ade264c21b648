@@ -1,0 +1,53 @@
+package com.area.bdd;
+
+public class Snippet {
+	List<Membre> res = new ArrayList<Membre>();
+			
+			loadDataBase();
+			
+			Statement requete = null;
+			ResultSet resultat = null;
+			
+			try{
+				requete = this.connexion.createStatement();
+				resultat = requete.executeQuery("Select * From membres;");
+						
+						while (resultat.next())
+						{
+							int id = resultat.getInt("id_clients");
+							String nom = resultat.getString("nom");
+							String prenom = resultat.getString("prenom");
+							String facebook = resultat.getString("facebook_iden");
+							String twitter = resultat.getString("twitter_iden");
+							String skype = resultat.getString("skype_iden");
+							String intra = resultat.getString("epitech_iden");
+							String mail = resultat.getString("mail_iden");
+							
+							Membre next = new Membre();
+							next.setNom(nom);
+							next.setPrenom(prenom);
+							next.setFacebook(facebook);
+							next.setTwitter(twitter);
+							next.setSkype(skype);
+							next.setIntra(intra);
+							next.setMail(mail);
+							
+							res.add(next);
+						}
+			}catch (SQLException e){
+				System.out.println("Error : " + e.getMessage());
+			}finally{
+				try{
+					if (resultat != null)
+						resultat.close();
+					if (requete!= null)
+						requete.close();
+					if (connexion != null)
+						connexion.close();	
+				}catch (SQLException e){
+					System.out.println("Error : " + e.getMessage());
+				}
+			}
+			return res;
+}
+

@@ -1,0 +1,30 @@
+package com.area.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.area.beans.Membre;
+
+public class UtilisateurDAOImpl implements UtilisateurDAO{
+	public void add(Membre membre){
+		try {
+			PreparedStatement prep = this.connexion.prepareStatement("Insert Into membres(nom, prenom, facebook_iden, twitter_iden, skype_iden, epitech_iden, mail) Values (?, ?, ?, ?, ?, ?, ?);");
+			prep.setString(1, membre.getNom());
+			prep.setString(2, membre.getPrenom());
+			prep.setString(3, membre.getFacebook());
+			prep.setString(4, membre.getTwitter());
+			prep.setString(5, membre.getSkype());
+			prep.setString(6, membre.getIntra());
+			prep.setString(7, membre.getMail());
+			prep.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public List<Membre> getList(){
+		return null;
+	}
+}

@@ -1,14 +1,14 @@
 package com.area.beans;
 
 public class Membre {
-	private int 	id;
+	private String	mail;
+	private String	password;
 	private String 	nom;
 	private String	prenom;
 	private String	facebook;
 	private String	twitter;
 	private String	intra;
 	private String	skype;
-	private String	mail;
 	
 	public String getNom() {
 		return nom;
@@ -46,14 +46,17 @@ public class Membre {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public int getId() {
-		return id;
-	}
 	public String getFacebook() {
 		return facebook;
 	}
 	public void setFacebook(String facebook) {
 		this.facebook = facebook;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }

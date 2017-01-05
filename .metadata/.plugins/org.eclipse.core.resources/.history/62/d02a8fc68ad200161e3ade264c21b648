@@ -1,0 +1,6 @@
+package com.area.dao;
+
+public interface UtilisateurDAO {
+	void			add(Membre membre);
+	List<Membre>	getList();
+}

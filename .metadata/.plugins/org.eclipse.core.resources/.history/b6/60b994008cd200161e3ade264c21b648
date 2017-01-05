@@ -1,0 +1,83 @@
+package com.area.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.area.beans.Membre;
+
+public class UtilisateurDAOImpl implements UtilisateurDAO{
+	private DAOFactory daofact;
+	
+	UtilisateurDAOImpl(DAOFactory daofact){
+		this.daofact = daofact;
+	}
+	public void add(Membre membre){
+		try {
+			PreparedStatement prep = this.connexion.prepareStatement("Insert Into membres(nom, prenom, facebook_iden, twitter_iden, skype_iden, epitech_iden, mail) Values (?, ?, ?, ?, ?, ?, ?);");
+			prep.setString(1, membre.getNom());
+			prep.setString(2, membre.getPrenom());
+			prep.setString(3, membre.getFacebook());
+			prep.setString(4, membre.getTwitter());
+			prep.setString(5, membre.getSkype());
+			prep.setString(6, membre.getIntra());
+			prep.setString(7, membre.getMail());
+			prep.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public List<Membre> getList(){
+List<Membre> res = new ArrayList<Membre>();
+		
+		loadDataBase();
+		
+		Statement requete = null;
+		ResultSet resultat = null;
+		
+		try{
+			requete = this.connexion.createStatement();
+			resultat = requete.executeQuery("Select * From membres;");
+					
+					while (resultat.next())
+					{
+						int id = resultat.getInt("id_clients");
+						String nom = resultat.getString("nom");
+						String prenom = resultat.getString("prenom");
+						String facebook = resultat.getString("facebook_iden");
+						String twitter = resultat.getString("twitter_iden");
+						String skype = resultat.getString("skype_iden");
+						String intra = resultat.getString("epitech_iden");
+						String mail = resultat.getString("mail_iden");
+						
+						Membre next = new Membre();
+						next.setNom(nom);
+						next.setPrenom(prenom);
+						next.setFacebook(facebook);
+						next.setTwitter(twitter);
+						next.setSkype(skype);
+						next.setIntra(intra);
+						next.setMail(mail);
+						
+						res.add(next);
+					}
+		}catch (SQLException e){
+			System.out.println("Error : " + e.getMessage());
+		}finally{
+			try{
+				if (resultat != null)
+					resultat.close();
+				if (requete!= null)
+					requete.close();	
+			}catch (SQLException e){
+				System.out.println("Error : " + e.getMessage());
+			}
+		}
+		return res;
+	}
+}

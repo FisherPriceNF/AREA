@@ -1,0 +1,5 @@
+package com.area.dao;
+
+public class UtilisateurDAOImpl implements UtilisateurDOA{
+
+}

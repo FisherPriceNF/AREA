@@ -1,0 +1,5 @@
+package com.area.dao;
+
+public interface InfosConnectDAO {
+	void			update(InfosConnect ic);
+}

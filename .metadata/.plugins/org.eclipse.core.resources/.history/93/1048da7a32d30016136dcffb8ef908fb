@@ -1,0 +1,7 @@
+package com.area.dao;
+
+import com.area.beans.InfosConnect;
+
+public interface InfosConnectDAO {
+	void			update(InfosConnect ic);
+}
