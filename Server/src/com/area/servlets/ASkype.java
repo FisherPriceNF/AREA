@@ -6,6 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.area.beans.Membre;
+import com.area.dao.DAOFactory;
+import com.area.dao.UtilisateurDAO;
 
 @WebServlet("/ASkype")
 public class ASkype extends HttpServlet {
@@ -16,10 +21,17 @@ public class ASkype extends HttpServlet {
 	public static final String ATT_MESSAGE = "message";
 	
 	public static final String VUE_PAGE = "/WEB-INF/page/Action.jsp";
+	private UtilisateurDAO userdao;
+	private HttpSession	Session;
 	
 	public ASkype() {
         super();
     }
+
+	public void init(){
+		DAOFactory daofactory = DAOFactory.getInstance();
+		this.userdao = daofactory.getUtilisateurDAO();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{ /* Affichage de la page Action*/
@@ -32,6 +44,7 @@ public class ASkype extends HttpServlet {
 		
 		String message;
 		boolean erreur;
+		Membre membre = null;
 		
 		/* Initialisation du message � afficher: si un des champs obligatoires 
 		 * du formulaire n'est pas renseign�, alors on affiche un message
@@ -44,6 +57,13 @@ public class ASkype extends HttpServlet {
 		}
 		else
 		{
+			membre = new Membre();
+			// TODO : session
+			//Session = request.getSession();
+			
+			//membre.setMail(Session.getAttribute("identifiant").toString());
+			membre.setSkype(identifiant);
+			userdao.updateSkype(membre);
 			message = "Connexion � Skype -> Ok! <br>";
 			erreur = false;
 		}

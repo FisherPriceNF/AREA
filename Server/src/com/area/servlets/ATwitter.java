@@ -6,6 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.area.beans.Membre;
+import com.area.dao.DAOFactory;
+import com.area.dao.UtilisateurDAO;
 
 @WebServlet("/ATwitter")
 public class ATwitter extends HttpServlet {
@@ -16,10 +21,17 @@ public class ATwitter extends HttpServlet {
 	public static final String ATT_MESSAGE = "message";
 	
 	public static final String VUE_PAGE = "/WEB-INF/page/Action.jsp";
+	private UtilisateurDAO userdao;
+	private HttpSession	Session;
 	
 	public ATwitter() {
         super();
     }
+
+	public void init(){
+		DAOFactory daofactory = DAOFactory.getInstance();
+		this.userdao = daofactory.getUtilisateurDAO();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{ /* Affichage de la page Action*/
@@ -32,6 +44,7 @@ public class ATwitter extends HttpServlet {
 		
 		String message;
 		boolean erreur;
+		Membre membre = null;
 		
 		/* Initialisation du message � afficher: si un des champs obligatoires 
 		 * du formulaire n'est pas renseign�, alors on affiche un message
@@ -44,6 +57,13 @@ public class ATwitter extends HttpServlet {
 		}
 		else
 		{
+			membre = new Membre();
+			// TODO : session
+			//Session = request.getSession();
+			
+			//membre.setMail(Session.getAttribute("identifiant").toString());
+			membre.setTwitter(identifiant);
+			userdao.updateTwitter(membre);
 			message = "Connexion � Twitter -> Ok! <br>";
 			erreur = false;
 		}

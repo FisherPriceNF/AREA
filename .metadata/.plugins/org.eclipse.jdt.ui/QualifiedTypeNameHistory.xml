@@ -8,10 +8,10 @@
 <fullyQualifiedTypeName name="com.area.bdd.User"/>
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="com.area.beans.Membre"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="com.area.beans.InfosConnect"/>
 <fullyQualifiedTypeName name="com.area.dao.DAOFactory"/>
 <fullyQualifiedTypeName name="com.area.dao.UtilisateurDAO"/>
-<fullyQualifiedTypeName name="com.area.beans.InfosConnect"/>
+<fullyQualifiedTypeName name="com.area.beans.Membre"/>
 </qualifiedTypeNameHistroy>
