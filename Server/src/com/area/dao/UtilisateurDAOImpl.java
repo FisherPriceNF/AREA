@@ -314,7 +314,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 			connexion = daofact.getConnection();
 			ic.setMail(membre.getMail());
 			
-			prep = connexion.prepareStatement("Select * From membre Where email_client = ? And password = MD5(?);");
+			prep = connexion.prepareStatement("Select * From membre Where mail_client = ? And password = MD5(?);");
 			prep.setString(1, membre.getMail());
 			prep.setString(2, membre.getPassword());
 			

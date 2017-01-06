@@ -18,7 +18,7 @@ public class InfosConnectDAOImpl implements InfosConnectDAO{
 		PreparedStatement prep = null;
 		try {
 			connexion = daofact.getConnection();
-			prep = connexion.prepareStatement("Insert Into connexion(email_client, last_connection, connect_errors) Values (?, NOW(), 0);");
+			prep = connexion.prepareStatement("Insert Into connexion(mail_client, last_connection, connect_errors) Values (?, NOW(), 0);");
 			prep.setString(1, ic.getMail());
 			prep.executeUpdate();
 		}catch (SQLException e){
@@ -43,7 +43,7 @@ public class InfosConnectDAOImpl implements InfosConnectDAO{
 			if (ic.isConnect_error()){
 				prep = connexion.prepareStatement("Update connexion Set connect_errors = connect_errors + 1 Where mail_client = ?;");
 			}else{
-				prep = connexion.prepareStatement("Update connexion Set last_connect = NOW() and connect_errors = 0 Where mail_client = ?;");
+				prep = connexion.prepareStatement("Update connexion Set last_connection = NOW(), connect_errors = 0 Where mail_client = ?;");
 			}
 			prep.setString(1, ic.getMail());
 			prep.executeUpdate();

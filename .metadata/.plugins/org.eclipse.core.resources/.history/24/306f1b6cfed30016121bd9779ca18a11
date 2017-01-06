@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0">
+  
+<!-- JSP CONFIGURATION -->
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+    </jsp-property-group>
+  </jsp-config>
+  
+  <!-- PAGE LOGIN -->
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.area.controller.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <!-- PAGE SIGNUP -->
+  <servlet>
+    <servlet-name>SignUp</servlet-name>
+    <servlet-class>com.area.controller.SignUp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignUp</servlet-name>
+    <url-pattern>/signUp</url-pattern>
+  </servlet-mapping>
+  
+  <!-- PAGE ACTION -->
+  <servlet>
+    <servlet-name>Action</servlet-name>
+    <servlet-class>com.area.controller.Action</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Action</servlet-name>
+    <url-pattern>/action</url-pattern>
+  </servlet-mapping>
+  
+  <!-- PAGE FACEBOOK -->
+  <servlet>
+    <servlet-name>Facebook</servlet-name>
+    <servlet-class>com.area.controller.AFacebook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Facebook</servlet-name>
+    <url-pattern>/action/facebook</url-pattern>
+  </servlet-mapping>
+  
+  <!-- PAGE TWITTER -->
+  <servlet>
+    <servlet-name>Twitter</servlet-name>
+    <servlet-class>com.area.controller.ATwitter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Twitter</servlet-name>
+    <url-pattern>/action/twitter</url-pattern>
+  </servlet-mapping>
+  
+  <!-- PAGE TWITTER -->
+  <servlet>
+    <servlet-name>Intra</servlet-name>
+    <servlet-class>com.area.controller.AIntra</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Intra</servlet-name>
+    <url-pattern>/action/intra</url-pattern>
+  </servlet-mapping>
+  
+  <!-- PAGE YAMMER -->
+  <servlet>
+    <servlet-name>Yammer</servlet-name>
+    <servlet-class>com.area.controller.AYammer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Yammer</servlet-name>
+    <url-pattern>/action/yammer</url-pattern>
+  </servlet-mapping>
+  
+  <!-- PAGE SKYPE -->
+  <servlet>
+    <servlet-name>Skype</servlet-name>
+    <servlet-class>com.area.controller.ASkype</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Skype</servlet-name>
+    <url-pattern>/action/skype</url-pattern>
+  </servlet-mapping>
+  
+  <!-- SESSION CONFIGURATION -->
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+</web-app>
